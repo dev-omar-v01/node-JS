@@ -30,9 +30,13 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-app.post('/',(req,res)=>{
-   const name = req.body.name;
-   res.send(`welcome ${name}`);
+app.get("/register",(req,res)=>{
+  res.sendFile(__dirname + "/view/index.html");
+});
+
+app.post('/register',(req,res)=>{
+ const name = req.body.fullName;
+   res.send(`name is ${name}`);
 });
 
 app.listen(PORT,()=>{
