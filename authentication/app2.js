@@ -1,4 +1,4 @@
-//md5 encryption use
+//md5 encryption use hashing 
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
