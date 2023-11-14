@@ -101,3 +101,37 @@ app.get("/products/:id", async (req,res)=>{
 
     }
 });
+
+
+///delete document
+app.delete("/products/:id", async (req,res)=>{
+    try{
+        const id = req.params.id;
+        const productdata = await Product.deleteOne({ _id: id});
+        res.status(200).send(productdata);
+            
+    }catch(error){
+        res.status(500).send({message: error});
+
+    }
+});
+
+//product update
+app.put("/products/:id", async (req,res)=>{
+    try{
+        const id = req.params.id;
+        const productdata = await Product.findByIdAndUpdate({ _id: id},{
+            $set:{
+                price: 134333,
+            },
+            
+        },{new:true});
+        res.status(200).send(productdata);
+            
+    }catch(error){
+        res.status(500).send({message: error});
+
+    }
+});
+
+
