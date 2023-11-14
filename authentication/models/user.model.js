@@ -18,7 +18,10 @@ const userSchema = new mongoose.Schema({
 
 });
 
-const enckey = process.env.ENC_KEY;
-userSchema.plugin(encrypt,{secret:enckey,encryptedFields:['password']});
+//mongoose encryption key used
+// const enckey = process.env.ENC_KEY;
+// userSchema.plugin(encrypt,{secret:enckey,encryptedFields:['password']});
+
+
 
 module.exports = mongoose.model("usersAuthDB",userSchema);
